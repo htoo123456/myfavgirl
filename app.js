@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const sliderContainer = document.querySelector(".sliderContainer")
 const slides = document.querySelectorAll(".slider")
 const indicators = document.querySelectorAll(".indicator")
@@ -7,8 +8,34 @@ const prevButton = document.querySelector(".prevArrow")
 const track = document.querySelector(".track")
 const audio = new Audio();
 
-audio.src = "audio.mp3";
-// audio.play();
+// loading page
+const html = body.innerHTML;
+body.innerHTML = `<section class="loading_section">
+  <div class="loading_parent">
+      <img src="gif.gif" alt="" class = "loading_gif">
+      <span class="loading_text">Loading</span>
+  </div>
+</section>`;
+const loading_text = document.querySelector(".loading_text");
+let dot = 0;
+const loading_dots = setInterval(() => {
+  if (dot >= 3) {
+    loading_text.innerText = loading_text.innerText;
+    dot = 0;
+  } else {
+    loading_text.innerText += ". ";
+    dot++;
+  }
+}, 500);
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    body.innerHTML = html;
+    clearInterval(loading_dots);
+  }, 2000);
+});
+
+
 const slideWidth = slides[0].getBoundingClientRect().width;
 const setSlidePosition = (slide,index) => {
   slide.style.left = slideWidth * index + "px";

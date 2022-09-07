@@ -354,6 +354,37 @@ p {
   right: -10%;
 }
 
+.loading_section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_gif {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+}
+
+.loading_text {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Edu VIC WA NT Beginner";
+}
+
+
 [data-aos = "new-animation-title"].aos-animate {
   opacity: 1;
   transform: translate(0) rotate(-20deg);
